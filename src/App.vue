@@ -1,28 +1,56 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <v-toolbar app>
+      <v-toolbar-title class="headline">
+        <span v-text="greeting"></span>
+      </v-toolbar-title>
+      <v-spacer></v-spacer>
+    </v-toolbar>
+
+    <v-content>
+      <Dashboard/>
+    </v-content>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Dashboard from "./components/Dashboard";
 
 export default {
-  name: 'app',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
-</script>
+    Dashboard
+  },
+  computed: {
+    greeting: function() {
+      var dayPart = "";
+      var hourOfDay = new Date().getHours();
+      if (hourOfDay >= 4 && hourOfDay < 12) {
+        dayPart = "morning";
+      } 
+      else if(hourOfDay >= 12 && hourOfDay < 17) {
+        dayPart = "afternoon";
+      }
+      else if(hourOfDay >= 17 && hourOfDay < 22){
+        dayPart = "evening";
+      }
+      else if (hourOfDay >= 22) {
+        dayPart = "night";
+      }
+      else {
+        return "You should go to bed Meredith.";
+      }
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+
+      return "Good " + dayPart + ", Meredith!"
+
+
+    }
+  },
+  data() {
+    return {
+      //
+    };
+  }
+};
+</script>
