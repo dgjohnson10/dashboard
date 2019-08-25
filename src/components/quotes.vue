@@ -19,7 +19,7 @@ export default {
       { text: "I saw this wino who was eating grapes. It's like, 'Dude, you have to wait.'", author: "Mitch Hedberg"},
       { text: "I Nelope!", author: "P"},
       { text: "I right here!", author: "P"},
-      // { text: "", author: ""},
+      { text: "Box of everything!", author: "H"},
       // { text: "", author: ""},
       // { text: "", author: ""},
       // { text: "", author: ""},
